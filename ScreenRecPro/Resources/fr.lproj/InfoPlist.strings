@@ -1,0 +1,7 @@
+/* Permission prompts */
+"CFBundleDisplayName" = "ScreenRec Pro";
+"NSMicrophoneUsageDescription" = "Ajoute votre voix aux enregistrements et vidéos facecam quand vous choisissez Micro.";
+"NSCameraUsageDescription" = "Vous filme dans la bulle facecam pendant la lecture de votre vidéo.";
+"NSPhotoLibraryAddUsageDescription" = "Enregistre vos vidéos, captures, GIF et modifications dans Photos.";
+"NSSpeechRecognitionUsageDescription" = "Transforme la parole de votre vidéo en sous-titres quand vous touchez Générer.";
+"NSUserTrackingUsageDescription" = "Permet des publicités plus pertinentes. L'app fonctionne de la même façon dans tous les cas.";

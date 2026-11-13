@@ -1,0 +1,292 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03A65C42D841B34D549ED2F1 = {isa = PBXBuildFile; fileRef = BDF1E7A7A280F0B876819AD0; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07B40BA996B796913FF17728 = {isa = PBXBuildFile; fileRef = 74B442A98C41224DB857BE9E; };
+		093549CEAF3A561D7BDF8FD6 = {isa = PBXBuildFile; fileRef = AB4ACD76779B73BA250A2021; };
+		0C4AF7CB152AD75C078F9B0B = {isa = PBXBuildFile; fileRef = 6D18507E834CD7EE63888E05; };
+		10F38355171161230178636C = {isa = PBXBuildFile; fileRef = A128EDBCCDCEDE3676DBB891; };
+		1279CB8CAA19308464218937 = {isa = PBXBuildFile; fileRef = 434ADADB40A6B910030BA84E; };
+		15F7B5662F017FA62B7551DD = {isa = PBXBuildFile; fileRef = FE7ED05664163E3D01618E41; };
+		18C5EBB9C659F570FDE92C49 = {isa = PBXBuildFile; fileRef = 7896213054FA85457FAAFD49; };
+		1B748A3CA205E44E1B0CD6AA = {isa = PBXBuildFile; fileRef = 2D26B385B39A45C5E2761A7B; };
+		1E29A94572D61CFE4DB4AE5A = {isa = PBXBuildFile; fileRef = CFA9C479EA80B2B268B4A7AF; };
+		2431C0ADA67BD7C67CDF68F4 = {isa = PBXBuildFile; fileRef = 26720909CD4CA36AD3929C00; };
+		2560F8F81432B972D7236362 = {isa = PBXBuildFile; fileRef = E40BDE1F64687804CF5379BD; };
+		27B6B0737AC572EAE025F4B8 = {isa = PBXBuildFile; fileRef = DC595634F2446A3B9185441D; };
+		27F2121534DC7722F11AC145 = {isa = PBXBuildFile; fileRef = 885B7371D3A83EAF99EA3190; };
+		2BAFFB84387B89C7CF6C660B = {isa = PBXBuildFile; fileRef = 30E402ADDE48C57C822EDBF5; };
+		2EC96D963CC09048D7F73E20 = {isa = PBXBuildFile; fileRef = 79525CB01D66B1AC6C98EB79; };
+		303BB48156809AC3A8CA578C = {isa = PBXBuildFile; fileRef = 0787CEE46831C1B2725BB852; };
+		3590CB748EBBCF655B7B4D64 = {isa = PBXBuildFile; fileRef = 3C190CB1E7AB685BCCAFA415; };
+		3892146238220491716926DE = {isa = PBXBuildFile; fileRef = DA6ABE891E66B455E05200EC; };
+		38BE1D78A647BAA5BF72D596 = {isa = PBXBuildFile; fileRef = 7375000701004112DF75140B; };
+		39DBE9D963FD7C94752436F1 = {isa = PBXBuildFile; fileRef = D34F1DD8410B1D0D137A290F; };
+		3D41EA55B0C2F05E2A2D11FD = {isa = PBXBuildFile; fileRef = B5BE37761EB788454A0C32A2; };
+		4031F9DB44C76A69AEA98D90 = {isa = PBXBuildFile; fileRef = 07D175D42510D148876F8843; };
+		4128BF535F6D9B649951092A = {isa = PBXBuildFile; fileRef = 0B8E093FED4A0E111405D82D; };
+		4342E637D04BA1725C9FA667 = {isa = PBXBuildFile; fileRef = F43DEDA18E35B430AB98F5C7; };
+		499AC4030219A08CF4F89F4B = {isa = PBXBuildFile; fileRef = D34F1DD8410B1D0D137A290F; };
+		5550AC4877C657C1F931E17C = {isa = PBXBuildFile; fileRef = A43DF6FA959A7367E2289286; };
+		5ACFC26B91B1A09F94373154 = {isa = PBXBuildFile; productRef = 34DE12FA2C539756E46F2056; };
+		5B7E1637D9F579F1A3546FC0 = {isa = PBXBuildFile; fileRef = 21291793424B847A1ED4BC52; };
+		5EF201B6676ED1D603126702 = {isa = PBXBuildFile; fileRef = 5E9472B6FE9481274C29EE9B; };
+		6535FE9F1DF9C6FCB51E490F = {isa = PBXBuildFile; fileRef = 93880AB884CF770B23783B03; };
+		658F41F921BA9EB1F90F712C = {isa = PBXBuildFile; fileRef = 5BD786A07BE6D755BE8D35E8; };
+		680A8239BA04CFC4E4117D45 = {isa = PBXBuildFile; fileRef = 305AA3BC7C17AD6C62173943; };
+		7277581A71A2A5A8769F5E12 = {isa = PBXBuildFile; fileRef = 34A046C7E15A504A6B1E8B95; };
+		75E7F2545282C6EEF2704FE3 = {isa = PBXBuildFile; fileRef = 6D18507E834CD7EE63888E05; };
+		7D7A55F8069709B04F4A986D = {isa = PBXBuildFile; productRef = 947523831625BF5443F563FA; };
+		81508383B74AE093DE01686E = {isa = PBXBuildFile; fileRef = DA65C4777DBE08924DD34958; };
+		8610D74D2E54A837A34001D6 = {isa = PBXBuildFile; fileRef = 9F4094A1C19DED206A4D2902; };
+		89982D784DAD051CE7D3BE8A = {isa = PBXBuildFile; fileRef = 1799300455A70B7A7B969386; };
+		90F5D4B4700E22EE1DB5F9BF = {isa = PBXBuildFile; fileRef = 68F2C4B116DD94DF4335E368; };
+		A4243879B37A816D31078800 = {isa = PBXBuildFile; fileRef = 02A5C8E1EACCDAD90EC762D1; };
+		A46964FD53D4B7BA06260B80 = {isa = PBXBuildFile; fileRef = 623E812385EE1ECB1A021FE9; };
+		A4FC7CB9B7CA53BE0E7B15DB = {isa = PBXBuildFile; fileRef = 9347B38A0C1E958F74758D30; };
+		A5C3A5AA95EF90C33767BF75 = {isa = PBXBuildFile; fileRef = D0E97322966316F9E08CE396; };
+		AB546B420AB053FB5155D2E6 = {isa = PBXBuildFile; fileRef = FE277551A915449E01AECC5B; };
+		AB755BAB66DFC2B3886E1649 = {isa = PBXBuildFile; fileRef = 2D1FDD31B5EC29213F6DD631; };
+		ABCC474A6B08D605823DB3A2 = {isa = PBXBuildFile; fileRef = 2A4C4A8909362054959EE853; };
+		AE615DC37BE2A9A34E3400C3 = {isa = PBXBuildFile; fileRef = 8431674D7B13F2B8769BC859; };
+		B76EA9B4E636B65980164767 = {isa = PBXBuildFile; fileRef = D34F1DD8410B1D0D137A290F; };
+		B924C818917C852779C92BF8 = {isa = PBXBuildFile; productRef = BE322D72168FF8750816237C; };
+		B9FDF380DF2CEB646A072772 = {isa = PBXBuildFile; fileRef = 1579AA859995E3C99938BDBF; };
+		C11E7FE2C5381AB300A14181 = {isa = PBXBuildFile; fileRef = 1D24626D9A4C39EB32E8DB29; };
+		C384E76FFF3B90C11DE0F225 = {isa = PBXBuildFile; fileRef = 6A2BE86C40D608E82FBEF67A; };
+		C46FD5286764C6189CBF2822 = {isa = PBXBuildFile; fileRef = D064AA69594656F2785612E3; };
+		C689961F1C306FBBF501C32D = {isa = PBXBuildFile; fileRef = 93B0335330D81ED84BF954FA; };
+		C8D3AE8E2FE9413D86BC371B = {isa = PBXBuildFile; fileRef = 8C1634CA5B4B3DD68B0ACAF4; };
+		D08B3CC6CF5CE519AC4C7334 = {isa = PBXBuildFile; fileRef = EEDF0E0E45CDB128ECE69728; };
+		D4D6CEFE240A1A265A593EDB = {isa = PBXBuildFile; fileRef = 1799300455A70B7A7B969386; };
+		D5820800AADAFB10CAB60170 = {isa = PBXBuildFile; productRef = EF7BCA2EB93E3AA5381B13EA; };
+		D66B8F41F245257D441A8E7C = {isa = PBXBuildFile; fileRef = D7D485ADD82D7372867533E1; };
+		DA741DA117146E4650BAA32F = {isa = PBXBuildFile; fileRef = D25D321FA5E2071238F23FA4; };
+		DA876E026BF0AB77053D2963 = {isa = PBXBuildFile; fileRef = 4800F78E88161996043777E9; };
+		DCBE19CBF3FC4EDA47022B1F = {isa = PBXBuildFile; fileRef = 718BB0C79FD706722B64DFB2; };
+		DDD6A22D2F06A18898BB5815 = {isa = PBXBuildFile; fileRef = D0AA4E9F0C325E96E50F8378; };
+		DE730C36CD4AD1E6CD61778E = {isa = PBXBuildFile; productRef = E453D9382B0B4372FE971004; };
+		E175FA13C21DC47BC69E881D = {isa = PBXBuildFile; fileRef = A3A3DD4AEA24250A8AA1B9CE; };
+		E9641F4F07F458B91987D9C3 = {isa = PBXBuildFile; fileRef = 1799300455A70B7A7B969386; };
+		EC1EC82E480931A45EF8E302 = {isa = PBXBuildFile; fileRef = 35012A92CE1092E9A00BA1F9; };
+		F1C6117064B97F979E2B3110 = {isa = PBXBuildFile; fileRef = 869830DFF78C78569D1DAB35; };
+		F51772614DAA9D9FC788A07D = {isa = PBXBuildFile; fileRef = 33A62FC697F1E5CA843F76F2; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		986527AC1A27A6F2FF91EEED = {isa = PBXBuildFile; fileRef = 1D597E8BEFD4E2FB5486C5E4; };
+		C4A290E8DF07DBA219BCDD5D = {isa = PBXBuildFile; fileRef = 82E54CED6793D31ED3A26BCF; };
+		AE241AE54377619244A5BCEE = {isa = PBXBuildFile; productRef = 8B963E2C2C0DF064B910682D; };
+		9DDDC01735548A843E945399 = {isa = PBXBuildFile; productRef = 59DD2C4CD86D4627F3331552; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66768362D44B519504060553 = {isa = PBXContainerItemProxy; containerPortal = 46F86FAA6BBF9AC94A7E4595; proxyType = 1; remoteGlobalIDString = 963B98EF46EEAD124755AD62; remoteInfo = ScreenRecLiveActivity; };
+		E929569DA9209B42D4EF06A7 = {isa = PBXContainerItemProxy; containerPortal = 46F86FAA6BBF9AC94A7E4595; proxyType = 1; remoteGlobalIDString = 9D6C7BD7A37C608BEC1D5AF5; remoteInfo = ScreenRecBroadcast; };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2445746D61D14C070BA4F7AF = {isa = PBXCopyFilesBuildPhase; buildActionMask = 2147483647; dstPath = ""; dstSubfolderSpec = 13; files = (F51772614DAA9D9FC788A07D, 03A65C42D841B34D549ED2F1, ); name = "Embed Foundation Extensions"; runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		06C7D9A13867BCDCFCC86DF5 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0787CEE46831C1B2725BB852 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		07D175D42510D148876F8843 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViews.swift; sourceTree = "<group>"; };
+		0B8E093FED4A0E111405D82D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTabView.swift; sourceTree = "<group>"; };
+		1579AA859995E3C99938BDBF = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		16CB7C9E57E3732FB9101FAA = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenRecPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D24626D9A4C39EB32E8DB29 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioView.swift; sourceTree = "<group>"; };
+		21291793424B847A1ED4BC52 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		23410EA54567DB428B1F73F4 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		26720909CD4CA36AD3929C00 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		290B9B8D30FBC1F7F52D5126 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A4C4A8909362054959EE853 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProcessor.swift; sourceTree = "<group>"; };
+		2D1FDD31B5EC29213F6DD631 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		2D26B385B39A45C5E2761A7B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioCompositor.swift; sourceTree = "<group>"; };
+		2D84420B575788AA59DD5CDA = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenRecPro.entitlements; sourceTree = "<group>"; };
+		305AA3BC7C17AD6C62173943 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		30996EE2292C730D76A324F7 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		30E402ADDE48C57C822EDBF5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerSheet.swift; sourceTree = "<group>"; };
+		33A62FC697F1E5CA843F76F2 = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScreenRecBroadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A046C7E15A504A6B1E8B95 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseEngine.swift; sourceTree = "<group>"; };
+		35012A92CE1092E9A00BA1F9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimToolView.swift; sourceTree = "<group>"; };
+		3C190CB1E7AB685BCCAFA415 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViews.swift; sourceTree = "<group>"; };
+		42697F90303094736B8C61D2 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		434ADADB40A6B910030BA84E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exporter.swift; sourceTree = "<group>"; };
+		44CA8A1A0D82251120EC4EC1 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4800F78E88161996043777E9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngagementViews.swift; sourceTree = "<group>"; };
+		518E595E8C3741941007B3A0 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		55E495B300680887F2B42B1F = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5BD786A07BE6D755BE8D35E8 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		5E9472B6FE9481274C29EE9B = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		623E812385EE1ECB1A021FE9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		68F2C4B116DD94DF4335E368 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		6A2BE86C40D608E82FBEF67A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		6D18507E834CD7EE63888E05 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingActivity.swift; sourceTree = "<group>"; };
+		718BB0C79FD706722B64DFB2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorView.swift; sourceTree = "<group>"; };
+		7375000701004112DF75140B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLibrary.swift; sourceTree = "<group>"; };
+		74B442A98C41224DB857BE9E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTimeline.swift; sourceTree = "<group>"; };
+		7896213054FA85457FAAFD49 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
+		79525CB01D66B1AC6C98EB79 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDialogs.swift; sourceTree = "<group>"; };
+		7A19769D196173E10637A4AC = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7B08E2328C7800F5C428E7A4 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8431674D7B13F2B8769BC859 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioModel.swift; sourceTree = "<group>"; };
+		869830DFF78C78569D1DAB35 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleEditor.swift; sourceTree = "<group>"; };
+		885B7371D3A83EAF99EA3190 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorModel.swift; sourceTree = "<group>"; };
+		89F40C3D7BD4B222B6613A39 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8C1634CA5B4B3DD68B0ACAF4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolPanels.swift; sourceTree = "<group>"; };
+		9347B38A0C1E958F74758D30 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stickers.swift; sourceTree = "<group>"; };
+		93880AB884CF770B23783B03 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		93B0335330D81ED84BF954FA = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		94E859B524D6E992B1EDE8E5 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		99F153B69188FD68C2A51A6F = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F4094A1C19DED206A4D2902 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechCaptioner.swift; sourceTree = "<group>"; };
+		A128EDBCCDCEDE3676DBB891 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacecamRecorderView.swift; sourceTree = "<group>"; };
+		A3A3DD4AEA24250A8AA1B9CE = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		A43DF6FA959A7367E2289286 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		AB4ACD76779B73BA250A2021 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engagement.swift; sourceTree = "<group>"; };
+		AC0B15D291815D30C711F75D = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B37E59D064AF01716D441C88 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B5BE37761EB788454A0C32A2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioViewModel.swift; sourceTree = "<group>"; };
+		BDF1E7A7A280F0B876819AD0 = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScreenRecLiveActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C189D747E6B6499F5FA41358 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C473D4FE12625C77C5255DDE = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenRecLiveActivity.entitlements; sourceTree = "<group>"; };
+		CEBA1D76999649FCA34FF853 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFA9C479EA80B2B268B4A7AF = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D064AA69594656F2785612E3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecProApp.swift; sourceTree = "<group>"; };
+		D0AA4E9F0C325E96E50F8378 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRenderer.swift; sourceTree = "<group>"; };
+		D0E97322966316F9E08CE396 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D25D321FA5E2071238F23FA4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectBuilder.swift; sourceTree = "<group>"; };
+		D34F1DD8410B1D0D137A290F = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		D7D485ADD82D7372867533E1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFx.swift; sourceTree = "<group>"; };
+		DA65C4777DBE08924DD34958 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcoder.swift; sourceTree = "<group>"; };
+		DA6ABE891E66B455E05200EC = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderSpec.swift; sourceTree = "<group>"; };
+		DC595634F2446A3B9185441D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingLiveActivity.swift; sourceTree = "<group>"; };
+		DDAB2D5F7FC45FAA37640F66 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E40BDE1F64687804CF5379BD = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnails.swift; sourceTree = "<group>"; };
+		EB7C79C18192C7039541370A = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EEDF0E0E45CDB128ECE69728 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingController.swift; sourceTree = "<group>"; };
+		F43DEDA18E35B430AB98F5C7 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookCatalog.swift; sourceTree = "<group>"; };
+		F662B1AAEAE23DF9C718D008 = {isa = PBXFileReference; lastKnownFileType = text.json; path = ScreenRecPro.storekit; sourceTree = "<group>"; };
+		F704FE4767B9DBBCB6254D9C = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenRecBroadcast.entitlements; sourceTree = "<group>"; };
+		FE277551A915449E01AECC5B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewers.swift; sourceTree = "<group>"; };
+		FE7ED05664163E3D01618E41 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1D597E8BEFD4E2FB5486C5E4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustTracker.swift; sourceTree = "<group>"; };
+		82E54CED6793D31ED3A26BCF = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2355384C0D642DA0E4BABD88 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (5ACFC26B91B1A09F94373154, DE730C36CD4AD1E6CD61778E, 7D7A55F8069709B04F4A986D, D5820800AADAFB10CAB60170, B924C818917C852779C92BF8, AE241AE54377619244A5BCEE, 9DDDC01735548A843E945399, ); runOnlyForDeploymentPostprocessing = 0; };
+		79CC83318CE067F3D1F117BE = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (658F41F921BA9EB1F90F712C, 5EF201B6676ED1D603126702, ); runOnlyForDeploymentPostprocessing = 0; };
+		A39E6256E839A67DF65349F4 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (5550AC4877C657C1F931E17C, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C2FE3ED9DE7221955DA3506 = {isa = PBXGroup; children = (0B8E093FED4A0E111405D82D, 07D175D42510D148876F8843, CFA9C479EA80B2B268B4A7AF, 79525CB01D66B1AC6C98EB79, ); path = Home; sourceTree = "<group>"; };
+		242C64E87529E9048A1EF9B2 = {isa = PBXGroup; children = (A4E2C31C27BA3F3DA7BEEFB4, 6343AA320329D12D0320FB4B, BBC57656A70C26B2B1E82EE1, 7F14CBDA77BDD9EEBF982545, F329AA0BDD4501B51A721BA6, FE7F84264FC44844EAA9F948, A72B061EDEF38B1BE3616E05, 29A46463434B39314622593F, BC2C3B6EE15EDAFE83D92F96, 4255E41B5FCADAECF5B929F8, 4FE812E9B20DAE2437F7515B, EB046B643CB89ADA0B709C7C, AC0B15D291815D30C711F75D, 2D84420B575788AA59DD5CDA, ); path = ScreenRecPro; sourceTree = "<group>"; };
+		29A46463434B39314622593F = {isa = PBXGroup; children = (7896213054FA85457FAAFD49, 3C190CB1E7AB685BCCAFA415, 68F2C4B116DD94DF4335E368, 93880AB884CF770B23783B03, ); path = Monetization; sourceTree = "<group>"; };
+		3FC2C49F0F83F1F909416E8B = {isa = PBXGroup; children = (30E402ADDE48C57C822EDBF5, ); path = Components; sourceTree = "<group>"; };
+		4255E41B5FCADAECF5B929F8 = {isa = PBXGroup; children = (2A4C4A8909362054959EE853, EEDF0E0E45CDB128ECE69728, ); path = Recording; sourceTree = "<group>"; };
+		4FE812E9B20DAE2437F7515B = {isa = PBXGroup; children = (26720909CD4CA36AD3929C00, FE7ED05664163E3D01618E41, 02A5C8E1EACCDAD90EC762D1, 1799300455A70B7A7B969386, D0E97322966316F9E08CE396, F662B1AAEAE23DF9C718D008, ); path = Resources; sourceTree = "<group>"; };
+		6343AA320329D12D0320FB4B = {isa = PBXGroup; children = (623E812385EE1ECB1A021FE9, D064AA69594656F2785612E3, ); path = App; sourceTree = "<group>"; };
+		7F14CBDA77BDD9EEBF982545 = {isa = PBXGroup; children = (7375000701004112DF75140B, E40BDE1F64687804CF5379BD, ); path = Data; sourceTree = "<group>"; };
+		83A050FAAFAE7AAEE7885EFD = {isa = PBXGroup; children = (F43DEDA18E35B430AB98F5C7, 8431674D7B13F2B8769BC859, ); path = Model; sourceTree = "<group>"; };
+		95D7698866F94E508691541E = {isa = PBXGroup; children = (305AA3BC7C17AD6C62173943, ); path = Settings; sourceTree = "<group>"; };
+		96E5A907043F19CB984D3F5B = {isa = PBXGroup; children = (9B0AFCCAE1E6C21E4DD201A6, ED281388093110495A359F06, 242C64E87529E9048A1EF9B2, 9D10A42589C8F5479091BEBD, CCFF15EB87DE2419B473560B, B0FB99AA8A3CEFAA341AD42B, ); sourceTree = "<group>"; };
+		9B0AFCCAE1E6C21E4DD201A6 = {isa = PBXGroup; children = (42697F90303094736B8C61D2, 1579AA859995E3C99938BDBF, 21291793424B847A1ED4BC52, F704FE4767B9DBBCB6254D9C, ); path = ScreenRecBroadcast; sourceTree = "<group>"; };
+		9D10A42589C8F5479091BEBD = {isa = PBXGroup; children = (D34F1DD8410B1D0D137A290F, 6D18507E834CD7EE63888E05, ); path = Shared; sourceTree = "<group>"; };
+		A72B061EDEF38B1BE3616E05 = {isa = PBXGroup; children = (A128EDBCCDCEDE3676DBB891, ); path = Facecam; sourceTree = "<group>"; };
+		B0FB99AA8A3CEFAA341AD42B = {isa = PBXGroup; children = (16CB7C9E57E3732FB9101FAA, 33A62FC697F1E5CA843F76F2, BDF1E7A7A280F0B876819AD0, ); name = Products; sourceTree = "<group>"; };
+		B4FF823B0901905B98CDB78E = {isa = PBXGroup; children = (9F4094A1C19DED206A4D2902, DA65C4777DBE08924DD34958, 35012A92CE1092E9A00BA1F9, ); path = Tools; sourceTree = "<group>"; };
+		BBC57656A70C26B2B1E82EE1 = {isa = PBXGroup; children = (A3A3DD4AEA24250A8AA1B9CE, 2D1FDD31B5EC29213F6DD631, 6A2BE86C40D608E82FBEF67A, D7D485ADD82D7372867533E1, 93B0335330D81ED84BF954FA, ); path = Core; sourceTree = "<group>"; };
+		BC2C3B6EE15EDAFE83D92F96 = {isa = PBXGroup; children = (885B7371D3A83EAF99EA3190, 718BB0C79FD706722B64DFB2, ); path = PhotoEditor; sourceTree = "<group>"; };
+		CCFF15EB87DE2419B473560B = {isa = PBXGroup; children = (A43DF6FA959A7367E2289286, 5E9472B6FE9481274C29EE9B, 5BD786A07BE6D755BE8D35E8, ); name = Frameworks; sourceTree = "<group>"; };
+		D5B828EFBECB4816E6422EF9 = {isa = PBXGroup; children = (434ADADB40A6B910030BA84E, D25D321FA5E2071238F23FA4, DA6ABE891E66B455E05200EC, 34A046C7E15A504A6B1E8B95, 2D26B385B39A45C5E2761A7B, D0AA4E9F0C325E96E50F8378, ); path = Render; sourceTree = "<group>"; };
+		DB4DDC8077C6E9BFEA314A02 = {isa = PBXGroup; children = (9347B38A0C1E958F74758D30, 74B442A98C41224DB857BE9E, 1D24626D9A4C39EB32E8DB29, B5BE37761EB788454A0C32A2, 869830DFF78C78569D1DAB35, 8C1634CA5B4B3DD68B0ACAF4, ); path = Views; sourceTree = "<group>"; };
+		EB046B643CB89ADA0B709C7C = {isa = PBXGroup; children = (3FC2C49F0F83F1F909416E8B, 1C2FE3ED9DE7221955DA3506, FBE169CE2EF1CF51F3E13EA9, 95D7698866F94E508691541E, FB7D6431C11655375A3F8665, ); path = UI; sourceTree = "<group>"; };
+		ED281388093110495A359F06 = {isa = PBXGroup; children = (99F153B69188FD68C2A51A6F, DC595634F2446A3B9185441D, C473D4FE12625C77C5255DDE, ); path = ScreenRecLiveActivity; sourceTree = "<group>"; };
+		F329AA0BDD4501B51A721BA6 = {isa = PBXGroup; children = (83A050FAAFAE7AAEE7885EFD, D5B828EFBECB4816E6422EF9, B4FF823B0901905B98CDB78E, DB4DDC8077C6E9BFEA314A02, ); path = Editor; sourceTree = "<group>"; };
+		FB7D6431C11655375A3F8665 = {isa = PBXGroup; children = (FE277551A915449E01AECC5B, ); path = Viewer; sourceTree = "<group>"; };
+		FBE169CE2EF1CF51F3E13EA9 = {isa = PBXGroup; children = (0787CEE46831C1B2725BB852, ); path = Onboarding; sourceTree = "<group>"; };
+		FE7F84264FC44844EAA9F948 = {isa = PBXGroup; children = (AB4ACD76779B73BA250A2021, 4800F78E88161996043777E9, ); path = Engagement; sourceTree = "<group>"; };
+		A4E2C31C27BA3F3DA7BEEFB4 = {isa = PBXGroup; children = (1D597E8BEFD4E2FB5486C5E4, 82E54CED6793D31ED3A26BCF, ); path = Analytics; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B93B5C96CF4487F60A6375B = {isa = PBXNativeTarget; buildConfigurationList = 094C4038E1DE4BA5E557B41E; buildPhases = (38D5C74DA8AC564663DE3B3C, 2355384C0D642DA0E4BABD88, 804BBF36637A2C060DA38AE6, 2445746D61D14C070BA4F7AF, 20A8DD8F3FB2AA8B6817741B, ); buildRules = ( ); dependencies = (D112F798E972307E9FEA52FD, 2F9277B992A307FD18E12D82, ); name = ScreenRecPro; packageProductDependencies = (34DE12FA2C539756E46F2056, E453D9382B0B4372FE971004, 947523831625BF5443F563FA, EF7BCA2EB93E3AA5381B13EA, BE322D72168FF8750816237C, 8B963E2C2C0DF064B910682D, 59DD2C4CD86D4627F3331552, ); productName = ScreenRecPro; productReference = 16CB7C9E57E3732FB9101FAA; productType = "com.apple.product-type.application"; };
+		963B98EF46EEAD124755AD62 = {isa = PBXNativeTarget; buildConfigurationList = 5A3D7F07A518CDE250483489; buildPhases = (5435063D16B04C4243B96003, 79CC83318CE067F3D1F117BE, 6D0CFBF3C1F5F7453E1FB392, ); buildRules = ( ); dependencies = (); name = ScreenRecLiveActivity; packageProductDependencies = (); productName = ScreenRecLiveActivity; productReference = BDF1E7A7A280F0B876819AD0; productType = "com.apple.product-type.app-extension"; };
+		9D6C7BD7A37C608BEC1D5AF5 = {isa = PBXNativeTarget; buildConfigurationList = 1D634188B0B3F8DED3582E2C; buildPhases = (27C5554C221D2F6FD337E215, A39E6256E839A67DF65349F4, E69D93046DEEFEFE4E0FE52D, ); buildRules = ( ); dependencies = (); name = ScreenRecBroadcast; packageProductDependencies = (); productName = ScreenRecBroadcast; productReference = 33A62FC697F1E5CA843F76F2; productType = "com.apple.product-type.app-extension"; };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46F86FAA6BBF9AC94A7E4595 = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 1600; LastUpgradeCheck = 1600; TargetAttributes = {5B93B5C96CF4487F60A6375B = {CreatedOnToolsVersion = 16.0; }; 9D6C7BD7A37C608BEC1D5AF5 = {CreatedOnToolsVersion = 16.0; }; 963B98EF46EEAD124755AD62 = {CreatedOnToolsVersion = 16.0; }; }; }; buildConfigurationList = 01076EBF22530E406F54B419; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, es, "pt-BR", fr, de, ar, hi, id, Base, ); mainGroup = 96E5A907043F19CB984D3F5B; packageReferences = (EC914B8139F53BCF6E442486, 7B3508CAE773B5D814117EA1, 4D36E747F813C44550698786, EB9EDFA4F0A4E78AF6EAB0AA, ); productRefGroup = B0FB99AA8A3CEFAA341AD42B; projectDirPath = ""; projectRoot = ""; targets = (5B93B5C96CF4487F60A6375B, 9D6C7BD7A37C608BEC1D5AF5, 963B98EF46EEAD124755AD62, ); };
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6D0CFBF3C1F5F7453E1FB392 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (89982D784DAD051CE7D3BE8A, ); runOnlyForDeploymentPostprocessing = 0; };
+		804BBF36637A2C060DA38AE6 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (2431C0ADA67BD7C67CDF68F4, 15F7B5662F017FA62B7551DD, A5C3A5AA95EF90C33767BF75, D4D6CEFE240A1A265A593EDB, A4243879B37A816D31078800, ); runOnlyForDeploymentPostprocessing = 0; };
+		E69D93046DEEFEFE4E0FE52D = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (B9FDF380DF2CEB646A072772, E9641F4F07F458B91987D9C3, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20A8DD8F3FB2AA8B6817741B = {isa = PBXShellScriptBuildPhase; alwaysOutOfDate = 1; buildActionMask = 2147483647; files = ( ); inputFileListPaths = ( ); inputPaths = ("${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}", "${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}", "${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist", "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist", "$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)", "${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib", ); name = "Upload dSYMs to Crashlytics"; outputFileListPaths = ( ); outputPaths = ( ); runOnlyForDeploymentPostprocessing = 0; shellPath = /bin/sh; shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n"; showEnvVarsInLog = 0; };
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27C5554C221D2F6FD337E215 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (5B7E1637D9F579F1A3546FC0, B76EA9B4E636B65980164767, ); runOnlyForDeploymentPostprocessing = 0; };
+		38D5C74DA8AC564663DE3B3C = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A46964FD53D4B7BA06260B80, C46FD5286764C6189CBF2822, E175FA13C21DC47BC69E881D, AB755BAB66DFC2B3886E1649, C384E76FFF3B90C11DE0F225, D66B8F41F245257D441A8E7C, C689961F1C306FBBF501C32D, 38BE1D78A647BAA5BF72D596, 2560F8F81432B972D7236362, 4342E637D04BA1725C9FA667, AE615DC37BE2A9A34E3400C3, 1279CB8CAA19308464218937, DA741DA117146E4650BAA32F, 3892146238220491716926DE, 7277581A71A2A5A8769F5E12, 1B748A3CA205E44E1B0CD6AA, DDD6A22D2F06A18898BB5815, 8610D74D2E54A837A34001D6, 81508383B74AE093DE01686E, EC1EC82E480931A45EF8E302, A4FC7CB9B7CA53BE0E7B15DB, 07B40BA996B796913FF17728, C11E7FE2C5381AB300A14181, 3D41EA55B0C2F05E2A2D11FD, F1C6117064B97F979E2B3110, C8D3AE8E2FE9413D86BC371B, 093549CEAF3A561D7BDF8FD6, DA876E026BF0AB77053D2963, 10F38355171161230178636C, 3590CB748EBBCF655B7B4D64, 18C5EBB9C659F570FDE92C49, 90F5D4B4700E22EE1DB5F9BF, 6535FE9F1DF9C6FCB51E490F, 27F2121534DC7722F11AC145, DCBE19CBF3FC4EDA47022B1F, ABCC474A6B08D605823DB3A2, D08B3CC6CF5CE519AC4C7334, 2BAFFB84387B89C7CF6C660B, 4128BF535F6D9B649951092A, 4031F9DB44C76A69AEA98D90, 1E29A94572D61CFE4DB4AE5A, 2EC96D963CC09048D7F73E20, 303BB48156809AC3A8CA578C, 680A8239BA04CFC4E4117D45, AB546B420AB053FB5155D2E6, 39DBE9D963FD7C94752436F1, 0C4AF7CB152AD75C078F9B0B, 986527AC1A27A6F2FF91EEED, C4A290E8DF07DBA219BCDD5D, ); runOnlyForDeploymentPostprocessing = 0; };
+		5435063D16B04C4243B96003 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (27B6B0737AC572EAE025F4B8, 499AC4030219A08CF4F89F4B, 75E7F2545282C6EEF2704FE3, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F9277B992A307FD18E12D82 = {isa = PBXTargetDependency; target = 963B98EF46EEAD124755AD62; targetProxy = 66768362D44B519504060553; };
+		D112F798E972307E9FEA52FD = {isa = PBXTargetDependency; target = 9D6C7BD7A37C608BEC1D5AF5; targetProxy = E929569DA9209B42D4EF06A7; };
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		02A5C8E1EACCDAD90EC762D1 = {isa = PBXVariantGroup; children = (89F40C3D7BD4B222B6613A39, 55E495B300680887F2B42B1F, 23410EA54567DB428B1F73F4, 44CA8A1A0D82251120EC4EC1, 06C7D9A13867BCDCFCC86DF5, CEBA1D76999649FCA34FF853, 30996EE2292C730D76A324F7, EB7C79C18192C7039541370A, ); name = InfoPlist.strings; sourceTree = "<group>"; };
+		1799300455A70B7A7B969386 = {isa = PBXVariantGroup; children = (DDAB2D5F7FC45FAA37640F66, 94E859B524D6E992B1EDE8E5, B37E59D064AF01716D441C88, 7A19769D196173E10637A4AC, 290B9B8D30FBC1F7F52D5126, C189D747E6B6499F5FA41358, 518E595E8C3741941007B3A0, 7B08E2328C7800F5C428E7A4, ); name = Localizable.strings; sourceTree = "<group>"; };
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0C79D1740D668119852A13BF = {isa = XCBuildConfiguration; buildSettings = {APPLICATION_EXTENSION_API_ONLY = YES; CODE_SIGN_ENTITLEMENTS = ScreenRecBroadcast/ScreenRecBroadcast.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = ScreenRecBroadcast/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"; MARKETING_VERSION = 1.0.0; PRODUCT_BUNDLE_IDENTIFIER = com.ol.mob.screen.recorder.app.broadcast; PRODUCT_NAME = "$(TARGET_NAME)"; SKIP_INSTALL = YES; SUPPORTS_MACCATALYST = NO; SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO; SWIFT_EMIT_LOC_STRINGS = NO; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+		1B513436383C4F882396B7DE = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = ScreenRecPro/ScreenRecPro.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; DEVELOPMENT_TEAM = ""; ENABLE_USER_SCRIPT_SANDBOXING = NO; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = ScreenRecPro/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.0.0; OTHER_LDFLAGS = "$(inherited) -ObjC"; PRODUCT_BUNDLE_IDENTIFIER = com.ol.mob.screen.recorder.app; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTS_MACCATALYST = NO; SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO; SWIFT_EMIT_LOC_STRINGS = NO; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+		27ED1494B45A9F983365E273 = {isa = XCBuildConfiguration; buildSettings = {APPLICATION_EXTENSION_API_ONLY = YES; CODE_SIGN_ENTITLEMENTS = ScreenRecLiveActivity/ScreenRecLiveActivity.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = ScreenRecLiveActivity/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 16.2; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"; MARKETING_VERSION = 1.0.0; PRODUCT_BUNDLE_IDENTIFIER = com.ol.mob.screen.recorder.app.liveactivity; PRODUCT_NAME = "$(TARGET_NAME)"; SKIP_INSTALL = YES; SUPPORTS_MACCATALYST = NO; SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO; SWIFT_EMIT_LOC_STRINGS = NO; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+		C771A418C142238E84E36883 = {isa = XCBuildConfiguration; buildSettings = {APPLICATION_EXTENSION_API_ONLY = YES; CODE_SIGN_ENTITLEMENTS = ScreenRecLiveActivity/ScreenRecLiveActivity.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = ScreenRecLiveActivity/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 16.2; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"; MARKETING_VERSION = 1.0.0; PRODUCT_BUNDLE_IDENTIFIER = com.ol.mob.screen.recorder.app.liveactivity; PRODUCT_NAME = "$(TARGET_NAME)"; SKIP_INSTALL = YES; SUPPORTS_MACCATALYST = NO; SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO; SWIFT_EMIT_LOC_STRINGS = NO; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+		E69E9FA47E5F84763092616A = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = ScreenRecPro/ScreenRecPro.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; DEVELOPMENT_TEAM = ""; ENABLE_USER_SCRIPT_SANDBOXING = NO; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = ScreenRecPro/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.0.0; OTHER_LDFLAGS = "$(inherited) -ObjC"; PRODUCT_BUNDLE_IDENTIFIER = com.ol.mob.screen.recorder.app; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTS_MACCATALYST = NO; SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO; SWIFT_EMIT_LOC_STRINGS = NO; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+		EA0DB2F0C56EDD597239149A = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES; CLANG_ANALYZER_NONNULL = YES; CLANG_CXX_LANGUAGE_STANDARD = "gnu++20"; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_ENABLE_OBJC_WEAK = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; ENABLE_STRICT_OBJC_MSGSEND = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LOCALIZATION_PREFERS_STRING_CATALOGS = NO; MTL_ENABLE_DEBUG_INFO = NO; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; VALIDATE_PRODUCT = YES; }; name = Release; };
+		EA6E7F52E77C53940FEB4878 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES; CLANG_ANALYZER_NONNULL = YES; CLANG_CXX_LANGUAGE_STANDARD = "gnu++20"; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_ENABLE_OBJC_WEAK = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_STRICT_OBJC_MSGSEND = YES; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; GCC_OPTIMIZATION_LEVEL = 0; GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1 $(inherited)"; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LOCALIZATION_PREFERS_STRING_CATALOGS = NO; MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE; ONLY_ACTIVE_ARCH = YES; SDKROOT = iphoneos; SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		F209E1D282D4A99376DFBBE0 = {isa = XCBuildConfiguration; buildSettings = {APPLICATION_EXTENSION_API_ONLY = YES; CODE_SIGN_ENTITLEMENTS = ScreenRecBroadcast/ScreenRecBroadcast.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = ScreenRecBroadcast/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"; MARKETING_VERSION = 1.0.0; PRODUCT_BUNDLE_IDENTIFIER = com.ol.mob.screen.recorder.app.broadcast; PRODUCT_NAME = "$(TARGET_NAME)"; SKIP_INSTALL = YES; SUPPORTS_MACCATALYST = NO; SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO; SWIFT_EMIT_LOC_STRINGS = NO; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01076EBF22530E406F54B419 = {isa = XCConfigurationList; buildConfigurations = (EA6E7F52E77C53940FEB4878, EA0DB2F0C56EDD597239149A, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		094C4038E1DE4BA5E557B41E = {isa = XCConfigurationList; buildConfigurations = (E69E9FA47E5F84763092616A, 1B513436383C4F882396B7DE, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		1D634188B0B3F8DED3582E2C = {isa = XCConfigurationList; buildConfigurations = (F209E1D282D4A99376DFBBE0, 0C79D1740D668119852A13BF, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		5A3D7F07A518CDE250483489 = {isa = XCConfigurationList; buildConfigurations = (C771A418C142238E84E36883, 27ED1494B45A9F983365E273, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D36E747F813C44550698786 = {isa = XCRemoteSwiftPackageReference; repositoryURL = "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git"; requirement = {kind = upToNextMajorVersion; minimumVersion = 3.0.0; }; };
+		7B3508CAE773B5D814117EA1 = {isa = XCRemoteSwiftPackageReference; repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git"; requirement = {kind = upToNextMajorVersion; minimumVersion = 12.0.0; }; };
+		EC914B8139F53BCF6E442486 = {isa = XCRemoteSwiftPackageReference; repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git"; requirement = {kind = upToNextMajorVersion; minimumVersion = 12.0.0; }; };
+		EB9EDFA4F0A4E78AF6EAB0AA = {isa = XCRemoteSwiftPackageReference; repositoryURL = "https://github.com/adjust/ios_sdk.git"; requirement = {kind = upToNextMajorVersion; minimumVersion = 5.0.0; }; };
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		34DE12FA2C539756E46F2056 = {isa = XCSwiftPackageProductDependency; package = EC914B8139F53BCF6E442486; productName = FirebaseCore; };
+		947523831625BF5443F563FA = {isa = XCSwiftPackageProductDependency; package = EC914B8139F53BCF6E442486; productName = FirebaseAnalytics; };
+		BE322D72168FF8750816237C = {isa = XCSwiftPackageProductDependency; package = 4D36E747F813C44550698786; productName = UserMessagingPlatform; };
+		E453D9382B0B4372FE971004 = {isa = XCSwiftPackageProductDependency; package = EC914B8139F53BCF6E442486; productName = FirebaseCrashlytics; };
+		EF7BCA2EB93E3AA5381B13EA = {isa = XCSwiftPackageProductDependency; package = 7B3508CAE773B5D814117EA1; productName = GoogleMobileAds; };
+		8B963E2C2C0DF064B910682D = {isa = XCSwiftPackageProductDependency; package = EC914B8139F53BCF6E442486; productName = FirebaseRemoteConfig; };
+		59DD2C4CD86D4627F3331552 = {isa = XCSwiftPackageProductDependency; package = EB9EDFA4F0A4E78AF6EAB0AA; productName = AdjustSdk; };
+/* End XCSwiftPackageProductDependency section */
+
+	};
+	rootObject = 46F86FAA6BBF9AC94A7E4595;
+}

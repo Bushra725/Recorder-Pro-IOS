@@ -1,0 +1,7 @@
+/* Permission prompts */
+"CFBundleDisplayName" = "ScreenRec Pro";
+"NSMicrophoneUsageDescription" = "يضيف صوتك إلى التسجيلات وفيديوهات الكاميرا الأمامية عند اختيار الميكروفون.";
+"NSCameraUsageDescription" = "يصوّرك في فقاعة الكاميرا الأمامية أثناء تشغيل الفيديو.";
+"NSPhotoLibraryAddUsageDescription" = "يحفظ تسجيلاتك ولقطات الشاشة وملفات GIF والتعديلات في الصور.";
+"NSSpeechRecognitionUsageDescription" = "يحوّل الكلام في الفيديو إلى ترجمة نصية عند الضغط على إنشاء.";
+"NSUserTrackingUsageDescription" = "يجعل الإعلانات أكثر ملاءمة لك. يعمل التطبيق بالطريقة نفسها في الحالتين.";

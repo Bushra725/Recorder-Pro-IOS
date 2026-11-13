@@ -1,0 +1,7 @@
+/* Permission prompts */
+"CFBundleDisplayName" = "ScreenRec Pro";
+"NSMicrophoneUsageDescription" = "Menambahkan suara Anda ke rekaman dan video facecam saat Anda memilih Mikrofon.";
+"NSCameraUsageDescription" = "Merekam Anda di gelembung facecam saat video diputar.";
+"NSPhotoLibraryAddUsageDescription" = "Menyimpan rekaman, tangkapan layar, GIF, dan hasil edit ke Foto.";
+"NSSpeechRecognitionUsageDescription" = "Mengubah ucapan di video menjadi teks saat Anda mengetuk Buat.";
+"NSUserTrackingUsageDescription" = "Membuat iklan lebih relevan untuk Anda. Aplikasi tetap bekerja sama saja.";

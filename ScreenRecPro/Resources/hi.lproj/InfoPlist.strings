@@ -1,0 +1,7 @@
+/* Permission prompts */
+"CFBundleDisplayName" = "ScreenRec Pro";
+"NSMicrophoneUsageDescription" = "माइक्रोफ़ोन चुनने पर रिकॉर्डिंग और फ़ेसकैम वीडियो में आपकी आवाज़ जोड़ता है।";
+"NSCameraUsageDescription" = "आपका वीडियो चलते समय फ़ेसकैम बबल में आपको रिकॉर्ड करता है।";
+"NSPhotoLibraryAddUsageDescription" = "आपकी रिकॉर्डिंग, स्क्रीनशॉट, GIF और एडिट Photos में सेव करता है।";
+"NSSpeechRecognitionUsageDescription" = "Generate दबाने पर वीडियो की आवाज़ को कैप्शन में बदलता है।";
+"NSUserTrackingUsageDescription" = "विज्ञापनों को आपके लिए ज़्यादा प्रासंगिक बनाता है। ऐप दोनों हालात में एक जैसा चलता है।";
