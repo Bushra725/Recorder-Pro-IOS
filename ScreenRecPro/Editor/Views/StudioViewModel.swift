@@ -91,6 +91,8 @@ final class StudioViewModel: ObservableObject {
     @Published var exportedURL: URL?
     @Published var previewAspect: CGFloat = 9.0 / 16.0
     @Published var exportShortEdge: CGFloat = 1080
+    /// Base size while a two-finger pinch resizes the selected overlay.
+    var pinchBaseSize: Double?
 
     let player = AVPlayer()
     private var project: BuiltProject?

@@ -29,21 +29,44 @@ struct FacecamRecorderView: View {
             VStack(spacing: 14) {
                 GeometryReader { geo in
                     let size = fit(videoAspect, geo.size)
+                    let bubbleSide = size.width * bubbleSize
                     ZStack(alignment: .topLeading) {
                         VideoPlayer(player: player).disabled(true)
                             .frame(width: size.width, height: size.height)
-                        CameraPreview(session: cam.session)
-                            .frame(width: size.width * bubbleSize, height: size.width * bubbleSize)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 3))
-                            .shadow(radius: 6)
-                            .position(x: bubbleCenter.x * size.width, y: bubbleCenter.y * size.height)
-                            .gesture(DragGesture().onChanged { g in
-                                if dragStart == nil { dragStart = bubbleCenter }
-                                guard let s = dragStart else { return }
-                                bubbleCenter = CGPoint(x: min(1, max(0, s.x + g.translation.width / size.width)),
-                                                       y: min(1, max(0, s.y + g.translation.height / size.height)))
-                            }.onEnded { _ in dragStart = nil })
+                        ZStack(alignment: .top) {
+                            CameraPreview(session: cam.session, mirrored: cam.isFront)
+                                .frame(width: bubbleSide, height: bubbleSide)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.white, lineWidth: 3))
+                                .shadow(radius: 6)
+                                .gesture(DragGesture().onChanged { g in
+                                    if dragStart == nil { dragStart = bubbleCenter }
+                                    guard let s = dragStart else { return }
+                                    bubbleCenter = CGPoint(
+                                        x: min(1, max(0, s.x + g.translation.width / size.width)),
+                                        y: min(1, max(0, s.y + g.translation.height / size.height))
+                                    )
+                                }.onEnded { _ in dragStart = nil })
+                            // Camera flip on top of the bubble (Android uses double-tap).
+                            Button {
+                                SoundFx.tick()
+                                cam.switchCamera()
+                            } label: {
+                                Image(systemName: "arrow.triangle.2.circlepath.camera.fill")
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundStyle(.white)
+                                    .padding(8)
+                                    .background(.black.opacity(0.55), in: Circle())
+                                    .overlay(Circle().stroke(Color.white.opacity(0.85), lineWidth: 1))
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityLabel(L("ios_facecam_switch"))
+                            .disabled(recording || !cam.ready || cam.switching)
+                            .opacity(recording ? 0.35 : 1)
+                            .offset(y: -6)
+                        }
+                        .frame(width: bubbleSide, height: bubbleSide)
+                        .position(x: bubbleCenter.x * size.width, y: bubbleCenter.y * size.height)
                     }
                     .frame(width: size.width, height: size.height)
                     .position(x: geo.size.width / 2, y: geo.size.height / 2)
@@ -137,13 +160,17 @@ struct FacecamRecorderView: View {
     }
 }
 
-/// Front camera + mic into a movie file.
+/// Front / back camera + mic into a movie file.
 @MainActor
 final class FacecamCamera: NSObject, ObservableObject, AVCaptureFileOutputRecordingDelegate {
     let session = AVCaptureSession()
     private let output = AVCaptureMovieFileOutput()
     private let queue = DispatchQueue(label: "facecam.session")
+    /// Only touched on `queue`.
+    private var videoInput: AVCaptureDeviceInput?
     @Published private(set) var ready = false
+    @Published private(set) var isFront = true
+    @Published private(set) var switching = false
     private var requestedAt = Date()
     private var startedAt: Date?
     private var completion: ((URL?, TimeInterval) -> Void)?
@@ -151,31 +178,62 @@ final class FacecamCamera: NSObject, ObservableObject, AVCaptureFileOutputRecord
     func configure() async {
         guard await AVCaptureDevice.requestAccess(for: .video) else { return }
         _ = await AVCaptureDevice.requestAccess(for: .audio)
+        let ok = await installCamera(position: .front, includeMic: true)
+        ready = ok
+        isFront = true
+    }
+
+    /// Flip between front and back — same as Android Facecam double-tap flip.
+    func switchCamera() {
+        guard ready, !switching, !output.isRecording else { return }
+        let next: AVCaptureDevice.Position = isFront ? .back : .front
+        switching = true
+        Task {
+            let ok = await installCamera(position: next, includeMic: false)
+            if ok { isFront = next == .front }
+            switching = false
+        }
+    }
+
+    private func installCamera(position: AVCaptureDevice.Position, includeMic: Bool) async -> Bool {
         let session = self.session, output = self.output
-        let ok: Bool = await withCheckedContinuation { cont in
+        return await withCheckedContinuation { cont in
             queue.async {
                 session.beginConfiguration()
-                session.sessionPreset = .high
-                guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front),
-                      let input = try? AVCaptureDeviceInput(device: device), session.canAddInput(input) else {
-                    session.commitConfiguration(); cont.resume(returning: false); return
+                if includeMic { session.sessionPreset = .high }
+                if let current = self.videoInput {
+                    session.removeInput(current)
+                    self.videoInput = nil
+                }
+                guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: position)
+                        ?? AVCaptureDevice.default(for: .video),
+                      let input = try? AVCaptureDeviceInput(device: device),
+                      session.canAddInput(input) else {
+                    session.commitConfiguration()
+                    cont.resume(returning: false)
+                    return
                 }
                 session.addInput(input)
-                if let mic = AVCaptureDevice.default(for: .audio),
-                   let micIn = try? AVCaptureDeviceInput(device: mic), session.canAddInput(micIn) {
-                    session.addInput(micIn)
+                self.videoInput = input
+                if includeMic {
+                    if let mic = AVCaptureDevice.default(for: .audio),
+                       let micIn = try? AVCaptureDeviceInput(device: mic), session.canAddInput(micIn) {
+                        session.addInput(micIn)
+                    }
+                    if session.canAddOutput(output) { session.addOutput(output) }
                 }
-                if session.canAddOutput(output) { session.addOutput(output) }
                 if let conn = output.connection(with: .video) {
-                    if conn.isVideoMirroringSupported { conn.isVideoMirrored = true }
+                    if conn.isVideoMirroringSupported {
+                        conn.automaticallyAdjustsVideoMirroring = false
+                        conn.isVideoMirrored = position == .front
+                    }
                     if conn.isVideoOrientationSupported { conn.videoOrientation = .portrait }
                 }
                 session.commitConfiguration()
-                session.startRunning()
+                if includeMic, !session.isRunning { session.startRunning() }
                 cont.resume(returning: true)
             }
         }
-        ready = ok
     }
 
     func startRecording() {
@@ -216,6 +274,7 @@ final class FacecamCamera: NSObject, ObservableObject, AVCaptureFileOutputRecord
 
 struct CameraPreview: UIViewRepresentable {
     let session: AVCaptureSession
+    var mirrored: Bool = true
 
     final class PreviewView: UIView {
         override class var layerClass: AnyClass { AVCaptureVideoPreviewLayer.self }
@@ -227,10 +286,19 @@ struct CameraPreview: UIViewRepresentable {
         v.preview.session = session
         v.preview.videoGravity = .resizeAspectFill
         v.backgroundColor = .darkGray
+        applyMirror(v.preview)
         return v
     }
 
-    func updateUIView(_ uiView: PreviewView, context: Context) {}
+    func updateUIView(_ uiView: PreviewView, context: Context) {
+        applyMirror(uiView.preview)
+    }
+
+    private func applyMirror(_ layer: AVCaptureVideoPreviewLayer) {
+        guard let conn = layer.connection, conn.isVideoMirroringSupported else { return }
+        conn.automaticallyAdjustsVideoMirroring = false
+        conn.isVideoMirrored = mirrored
+    }
 }
 
 // MARK: - Compositing

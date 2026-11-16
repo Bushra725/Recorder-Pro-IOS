@@ -1,4 +1,4 @@
-/* ScreenRec Pro — es. Generated from Android values-es/strings.xml + iOS keys. */
+﻿/* ScreenRec Pro — es. Generated from Android values-es/strings.xml + iOS keys. */
 
 "access_terms_body" = "Galería y fotos: guardamos grabaciones y capturas en tu galería para que puedas verlas, compartirlas y eliminarlas en esta app y en Fotos. No analizamos tus otras imágenes.\n\nVideos: cuando recortas, combinas, añades subtítulos o exportas, eliges un archivo con el selector del sistema. Solo abrimos el clip que elijas.\n\nCámara: superposición Facecam opcional. Se usa solo mientras activas Facecam, nunca en segundo plano.\n\nMicrófono: voz opcional en la grabación. Se solicita solo cuando eliges Micrófono o Ambos.\n\nGrabación de pantalla: el cuadro de captura del sistema iOS. Puedes rechazarlo y la app no grabará.";
 "access_terms_title" = "Por qué pedimos acceso";
@@ -221,7 +221,7 @@
 "ios_draft_restored" = "Borrador restaurado";
 "ios_duration_photo_only" = "Selecciona una foto en la línea de tiempo para fijar cuánto dura.";
 "ios_export_saved_body" = "Guardado en tu biblioteca (y en Fotos si Guardar en galería está activo).";
-"ios_facecam_hint" = "Tu vídeo se reproduce mientras la cámara frontal te graba. Arrastra la burbuja para colocarla; usa auriculares para evitar eco.";
+"ios_facecam_hint" = "Tu vídeo se reproduce mientras la cámara te graba. Toca el botón de la burbuja para cambiar de cámara; arrástrala para colocarla; usa auriculares para evitar eco.";
 "ios_first_video_body" = "Toca Grabar, elige el sonido y toca Iniciar transmisión. La cuenta atrás de 3 segundos te da tiempo para cambiar de app.";
 "ios_hide_toasts_sub" = "Sin mensajes de “Grabación iniciada” o “Guardado” en la app";
 "ios_import_screenshots" = "Importar de Fotos";
@@ -633,3 +633,4 @@
 "watermark_working_body" = "Añadiendo la marca de agua. Esto tarda unos segundos.";
 "watermark_working_title" = "Finalizando tu grabación";
 "your_text" = "Tu texto";
+"ios_facecam_switch" = "Cambiar cámara";

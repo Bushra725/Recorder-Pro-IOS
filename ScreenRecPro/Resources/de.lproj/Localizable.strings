@@ -1,4 +1,4 @@
-/* ScreenRec Pro — de. Generated from Android values-de/strings.xml + iOS keys. */
+﻿/* ScreenRec Pro — de. Generated from Android values-de/strings.xml + iOS keys. */
 
 "access_terms_body" = "Galerie und Fotos: Wir speichern Aufnahmen und Screenshots in deiner Galerie, damit du sie in dieser App und in Fotos ansehen, teilen und löschen kannst. Deine anderen Bilder durchsuchen wir nicht.\n\nVideos: Wenn du schneidest, zusammenfügst, Untertitel hinzufügst oder exportierst, wählst du eine Datei mit der Systemauswahl. Wir öffnen nur den Clip, den du auswählst.\n\nKamera: optionales Facecam-Overlay. Wird nur verwendet, solange du Facecam einschaltest, nie im Hintergrund.\n\nMikrofon: optionale Stimme in der Aufnahme. Wird nur abgefragt, wenn du Mikrofon oder Beides wählst.\n\nBildschirmaufnahme: iOS-Systemdialog zur Aufnahme. Du kannst ablehnen, dann nimmt die App nicht auf.";
 "access_terms_title" = "Warum wir Zugriff anfragen";
@@ -221,7 +221,7 @@
 "ios_draft_restored" = "Entwurf wiederhergestellt";
 "ios_duration_photo_only" = "Wähle ein Foto auf der Zeitleiste, um seine Dauer festzulegen.";
 "ios_export_saved_body" = "In deiner Mediathek gespeichert (und in Fotos, wenn „In Galerie speichern“ an ist).";
-"ios_facecam_hint" = "Dein Video läuft, während die Frontkamera dich filmt. Ziehe die Blase an ihren Platz; Kopfhörer verhindern Echo.";
+"ios_facecam_hint" = "Dein Video läuft, während die Kamera dich filmt. Tippe den Knopf auf der Blase zum Umschalten; ziehe sie an ihren Platz; Kopfhörer verhindern Echo.";
 "ios_first_video_body" = "Tippe auf Aufnehmen, wähle den Ton und dann „Übertragung starten“. Der 3-Sekunden-Countdown gibt dir Zeit, die App zu wechseln.";
 "ios_hide_toasts_sub" = "Keine „Aufnahme gestartet“- oder „Gespeichert“-Meldungen in der App";
 "ios_import_screenshots" = "Aus Fotos importieren";
@@ -633,3 +633,4 @@
 "watermark_working_body" = "Wasserzeichen wird hinzugefügt. Das dauert nur wenige Sekunden.";
 "watermark_working_title" = "Aufnahme wird fertiggestellt";
 "your_text" = "Dein Text";
+"ios_facecam_switch" = "Kamera wechseln";

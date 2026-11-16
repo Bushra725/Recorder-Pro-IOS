@@ -1,4 +1,4 @@
-/* ScreenRec Pro — en. Generated from Android values/strings.xml + iOS keys. */
+﻿/* ScreenRec Pro — en. Generated from Android values/strings.xml + iOS keys. */
 
 "access_terms_body" = "Gallery and photos: we save recordings and screenshots into your gallery so you can watch, share and delete them in this app and in Photos. We do not scan your other pictures.\n\nVideos: when you trim, merge, caption or export, you pick a file with the system picker. We only open the clip you choose.\n\nCamera: optional Facecam overlay. Used only while you turn Facecam on, never in the background.\n\nMicrophone: optional voice on the recording. Asked only when you pick Mic or Both.\n\nScreen recording: iOS’s system capture dialog. You can refuse and the app will not record.";
 "access_terms_title" = "Why we ask for access";
@@ -221,7 +221,7 @@
 "ios_draft_restored" = "Draft restored";
 "ios_duration_photo_only" = "Select a photo on the timeline to set how long it shows.";
 "ios_export_saved_body" = "Saved to your library (and Photos, if Save to gallery is on).";
-"ios_facecam_hint" = "Your video plays while the front camera films you. Drag the bubble to place it; use headphones to avoid echo.";
+"ios_facecam_hint" = "Your video plays while the camera films you. Tap the flip button on the bubble to switch cameras; drag to place it; use headphones to avoid echo.";
 "ios_first_video_body" = "Tap Record, pick the sound, then tap Start Broadcast. A 3-second countdown gives you time to switch apps.";
 "ios_hide_toasts_sub" = "No “Recording started” or “Saved” messages in the app";
 "ios_import_screenshots" = "Import from Photos";
@@ -633,3 +633,4 @@
 "watermark_working_body" = "Adding the watermark. This takes a few seconds.";
 "watermark_working_title" = "Finishing your recording";
 "your_text" = "Your text";
+"ios_facecam_switch" = "Switch camera";

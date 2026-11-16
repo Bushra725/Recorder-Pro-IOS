@@ -122,6 +122,7 @@ struct StudioView: View {
                 OverlayEditorLayer(vm: vm, frameSize: size)
                     .frame(width: size.width, height: size.height)
                     .clipped()
+                    .simultaneousGesture(studioOverlayPinch(frame: size))
                 if !vm.isPlaying && vm.loaded && vm.selectedTextID == nil {
                     Image(systemName: "play.fill").font(.system(size: 40)).foregroundStyle(.white.opacity(0.75))
                         .allowsHitTesting(false)
@@ -130,6 +131,22 @@ struct StudioView: View {
             .frame(width: geo.size.width, height: geo.size.height)
         }
         .padding(.vertical, 6)
+    }
+
+    private func studioOverlayPinch(frame: CGSize) -> some Gesture {
+        MagnificationGesture()
+            .onChanged { scale in
+                guard let id = vm.selectedTextID, let item = vm.state.texts.first(where: { $0.id == id }) else { return }
+                if vm.pinchBaseSize == nil { vm.pinchBaseSize = item.size }
+                let base = vm.pinchBaseSize ?? item.size
+                vm.updateText(id, staged: true) {
+                    $0.size = min(0.55, max(0.02, base * Double(scale)))
+                }
+            }
+            .onEnded { _ in
+                vm.pinchBaseSize = nil
+                vm.commitStaged()
+            }
     }
 
     private func fitted(aspect: CGFloat, in box: CGSize) -> CGSize {
@@ -265,61 +282,76 @@ private struct OverlayItemView: View {
     let frameSize: CGSize
 
     @State private var dragStart: CGPoint?
-    @State private var scaleStart: Double?
-    @State private var rotationStart: Double?
+    @State private var handleBase: Double?
 
     var body: some View {
         let selected = vm.selectedTextID == item.id
         let image = TextRenderer.image(for: item, frameHeight: frameSize.height * UIScreen.main.scale)
-        let w = image.size.width / UIScreen.main.scale
-        let h = image.size.height / UIScreen.main.scale
-        Image(uiImage: image)
-            .resizable()
-            .frame(width: w, height: h)
-            .overlay {
-                if selected {
-                    RoundedRectangle(cornerRadius: 4).stroke(Brand.accent, style: StrokeStyle(lineWidth: 1.5, dash: [5, 3]))
-                        .overlay(alignment: .topTrailing) {
-                            Button { vm.deleteText(item.id) } label: {
-                                Image(systemName: "xmark.circle.fill").font(.title3)
-                                    .foregroundStyle(.white, Brand.record)
-                            }
-                            .offset(x: 12, y: -12)
-                        }
+        let w = max(44, image.size.width / UIScreen.main.scale)
+        let h = max(44, image.size.height / UIScreen.main.scale)
+        ZStack {
+            Image(uiImage: image)
+                .resizable()
+                .frame(width: image.size.width / UIScreen.main.scale,
+                       height: image.size.height / UIScreen.main.scale)
+            if selected {
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(Brand.accent, style: StrokeStyle(lineWidth: 1.5, dash: [5, 3]))
+                    .frame(width: w + 8, height: h + 8)
+                Button { vm.deleteText(item.id) } label: {
+                    Image(systemName: "xmark.circle.fill").font(.title3)
+                        .foregroundStyle(.white, Brand.record)
                 }
-            }
-            .rotationEffect(.degrees(item.rotation))
-            .position(x: item.x * frameSize.width, y: item.y * frameSize.height)
-            .gesture(
-                DragGesture()
-                    .onChanged { g in
-                        if dragStart == nil { dragStart = CGPoint(x: item.x, y: item.y); vm.selectedTextID = item.id }
-                        guard let s = dragStart else { return }
-                        vm.updateText(item.id, staged: true) {
-                            $0.x = min(1, max(0, s.x + g.translation.width / frameSize.width))
-                            $0.y = min(1, max(0, s.y + g.translation.height / frameSize.height))
-                        }
-                    }
-                    .onEnded { _ in dragStart = nil; vm.commitStaged() }
-                    .simultaneously(with: MagnificationGesture()
-                        .onChanged { m in
-                            if scaleStart == nil { scaleStart = item.size }
+                .offset(x: w / 2 + 4, y: -h / 2 - 4)
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 22, height: 22)
+                    .overlay(Circle().stroke(Brand.primary, lineWidth: 2))
+                    .overlay(Image(systemName: "arrow.up.left.and.arrow.down.right")
+                        .font(.system(size: 9, weight: .bold))
+                        .foregroundStyle(Brand.primary))
+                    .offset(x: w / 2 + 4, y: h / 2 + 4)
+                    .gesture(DragGesture(minimumDistance: 0)
+                        .onChanged { g in
+                            if handleBase == nil {
+                                handleBase = item.size
+                                vm.selectedTextID = item.id
+                            }
+                            guard let base = handleBase else { return }
+                            let delta = (g.translation.width + g.translation.height)
+                                / max(120, min(frameSize.width, frameSize.height) * 0.35)
                             vm.updateText(item.id, staged: true) {
-                                $0.size = min(0.4, max(0.015, (scaleStart ?? 0.06) * Double(m)))
+                                $0.size = min(0.55, max(0.02, base * Double(1 + delta)))
                             }
                         }
-                        .onEnded { _ in scaleStart = nil; vm.commitStaged() })
-                    .simultaneously(with: RotationGesture()
-                        .onChanged { r in
-                            if rotationStart == nil { rotationStart = item.rotation }
-                            vm.updateText(item.id, staged: true) { $0.rotation = (rotationStart ?? 0) + r.degrees }
-                        }
-                        .onEnded { _ in rotationStart = nil; vm.commitStaged() })
-            )
-            .onTapGesture {
-                SoundFx.tick()
-                vm.selectedTextID = item.id
-                vm.panel = item.kind == .sticker ? .sticker : item.kind == .caption ? .captions : .text
+                        .onEnded { _ in handleBase = nil; vm.commitStaged() })
             }
+        }
+        .frame(width: w + 24, height: h + 24)
+        .contentShape(Rectangle())
+        .rotationEffect(.degrees(item.rotation))
+        .position(x: item.x * frameSize.width, y: item.y * frameSize.height)
+        .highPriorityGesture(
+            DragGesture(minimumDistance: 3)
+                .onChanged { g in
+                    if dragStart == nil {
+                        dragStart = CGPoint(x: item.x, y: item.y)
+                        vm.selectedTextID = item.id
+                        vm.panel = item.kind == .sticker ? .sticker
+                            : item.kind == .caption ? .captions : .text
+                    }
+                    guard let s = dragStart else { return }
+                    vm.updateText(item.id, staged: true) {
+                        $0.x = min(0.95, max(0.05, s.x + g.translation.width / frameSize.width))
+                        $0.y = min(0.95, max(0.05, s.y + g.translation.height / frameSize.height))
+                    }
+                }
+                .onEnded { _ in dragStart = nil; vm.commitStaged() }
+        )
+        .onTapGesture {
+            SoundFx.tick()
+            vm.selectedTextID = item.id
+            vm.panel = item.kind == .sticker ? .sticker : item.kind == .caption ? .captions : .text
+        }
     }
 }

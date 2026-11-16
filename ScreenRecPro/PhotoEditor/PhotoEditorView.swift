@@ -2,7 +2,8 @@ import SwiftUI
 
 /// Port of Android's PhotoEditActivity: crop & rotate, filters, text, brush,
 /// stickers. Also hosts the iOS "Brush" tool (Android draws over other apps;
-/// iOS cannot, so the brush annotates a screenshot instead).
+/// iOS cannot, so the brush annotates a screenshot / photo instead — same
+/// tool set as Android's `PhotoBrushBar`).
 struct PhotoEditorView: View {
     @StateObject private var m: PhotoEditorModel
     @State private var confirmLeave = false
@@ -10,10 +11,15 @@ struct PhotoEditorView: View {
     @State private var draft = ""
     @State private var stickerPack: StickerPack = .trending
     @State private var showSaved = false
-    @State private var showPalette = false
+    /// Colour + size sheet, matching Android's palette toggle on PhotoBrushBar.
+    @State private var showBrushPalette = false
+    private let startWithBrush: Bool
 
     init(url: URL, startWithBrush: Bool) {
+        self.startWithBrush = startWithBrush
         _m = StateObject(wrappedValue: PhotoEditorModel(url: url, startWithBrush: startWithBrush))
+        // Match Android: colour/size is a toggle, but open it when Brush is the entry point.
+        _showBrushPalette = State(initialValue: startWithBrush)
     }
 
     var body: some View {
@@ -54,7 +60,7 @@ struct PhotoEditorView: View {
         HStack {
             Button { if m.hasEdits { confirmLeave = true } else { close() } } label: { Image(systemName: "xmark").font(.title3) }
             Spacer()
-            Text(L("edit_photo")).font(.headline)
+            Text(startWithBrush ? L("tool_brush") : L("edit_photo")).font(.headline)
             Spacer()
             Button {
                 Task { if await m.save() != nil { showSaved = true } }
@@ -76,6 +82,11 @@ struct PhotoEditorView: View {
                 let size = fit(img.size, in: geo.size)
                 ZStack {
                     Image(uiImage: img).resizable().frame(width: size.width, height: size.height)
+                    // Tap empty photo to deselect — behind overlays so drag/pinch still work.
+                    Color.clear
+                        .frame(width: size.width, height: size.height)
+                        .contentShape(Rectangle())
+                        .onTapGesture { m.selectedTextID = nil }
                     StrokeLayer(strokes: m.strokes, live: m.live)
                         .frame(width: size.width, height: size.height)
                         .allowsHitTesting(false)
@@ -94,14 +105,30 @@ struct PhotoEditorView: View {
                                 .onEnded { _ in m.brushEnded() })
                     }
                 }
+                .frame(width: size.width, height: size.height)
+                // Two-finger pinch anywhere on the photo resizes the selected text/sticker
+                // (same idea as Android `pinchSelectedOverlay`).
+                .simultaneousGesture(selectedOverlayPinch(frame: size))
                 .frame(width: geo.size.width, height: geo.size.height)
             } else {
                 ProgressView().frame(width: geo.size.width, height: geo.size.height)
             }
         }
         .padding(8)
-        .contentShape(Rectangle())
-        .onTapGesture { m.selectedTextID = nil }
+    }
+
+    private func selectedOverlayPinch(frame: CGSize) -> some Gesture {
+        MagnificationGesture()
+            .onChanged { scale in
+                guard m.panel != .brush, let id = m.selectedTextID,
+                      let item = m.texts.first(where: { $0.id == id }) else { return }
+                if m.pinchBaseSize == nil { m.pinchBaseSize = item.size }
+                let base = m.pinchBaseSize ?? item.size
+                m.updateText(id, staged: true) {
+                    $0.size = min(0.55, max(0.02, base * Double(scale)))
+                }
+            }
+            .onEnded { _ in m.pinchBaseSize = nil }
     }
 
     private func fit(_ s: CGSize, in box: CGSize) -> CGSize {
@@ -146,8 +173,11 @@ struct PhotoEditorView: View {
         .foregroundStyle(.white)
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .frame(maxHeight: 300)
+        .frame(maxHeight: p == .brush && showBrushPalette ? 260 : 300)
         .background(Color(white: 0.11), in: UnevenTopCorners())
+        .onChange(of: m.panel) { panel in
+            if panel == .brush, startWithBrush { showBrushPalette = true }
+        }
     }
 
     private var cropPanel: some View {
@@ -217,49 +247,103 @@ struct PhotoEditorView: View {
         }
     }
 
+    /// Port of Android `PhotoBrushBar`: scrollable tools, then an optional
+    /// colour / size palette opened by the palette button.
     private var brushPanel: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 6) {
-                ForEach(BrushTool.allCases) { t in
-                    Button { m.brushTool = t } label: {
-                        Image(systemName: t.icon)
-                            .frame(width: 40, height: 36)
-                            .background(m.brushTool == t ? Color.orange.opacity(0.25) : .clear,
-                                        in: RoundedRectangle(cornerRadius: 8))
-                            .foregroundStyle(m.brushTool == t ? .orange : .white)
-                    }
-                    .accessibilityLabel(L(t.labelKey))
-                }
-                Button { m.brushFill.toggle() } label: {
-                    Image(systemName: m.brushFill ? "square.fill" : "square")
-                        .frame(width: 40, height: 36)
-                        .foregroundStyle(m.brushFill ? .orange : .white)
-                }
-                .accessibilityLabel(L("brush_tool_fill"))
-                Spacer()
-                Button { m.undoStroke() } label: { Image(systemName: "arrow.uturn.backward") }
-                    .simultaneousGesture(LongPressGesture().onEnded { _ in m.clearStrokes() })
-                    .accessibilityLabel(L("undo"))
-            }
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    ForEach(Brand.brushSwatches, id: \.self) { c in
-                        Circle().fill(Color(UIColor(argb: c))).frame(width: 30, height: 30)
-                            .overlay(Circle().stroke(m.brushColor == c ? Brand.accent : .white.opacity(0.3),
-                                                     lineWidth: m.brushColor == c ? 3 : 1))
-                            .onTapGesture { m.brushColor = c }
+                HStack(spacing: 4) {
+                    ForEach(BrushTool.allCases) { t in
+                        brushIcon(
+                            system: t.icon,
+                            label: L(t.labelKey),
+                            selected: m.brushTool == t,
+                            danger: t == .eraser && m.brushTool == .eraser
+                        ) { m.brushTool = t }
+                    }
+                    brushIcon(
+                        system: m.brushFill ? "square.fill" : "square.dashed",
+                        label: L("brush_tool_fill"),
+                        selected: m.brushFill
+                    ) { m.brushFill.toggle() }
+                    brushIcon(
+                        system: "paintpalette.fill",
+                        label: L("brush_tool_color"),
+                        selected: showBrushPalette
+                    ) { showBrushPalette.toggle() }
+                    brushIcon(
+                        system: "arrow.uturn.backward",
+                        label: L("undo"),
+                        selected: false,
+                        enabled: !m.strokes.isEmpty
+                    ) { m.undoStroke() }
+                    .simultaneousGesture(LongPressGesture(minimumDuration: 0.45).onEnded { _ in
+                        m.clearStrokes()
+                    })
+                }
+                .padding(.vertical, 2)
+            }
+
+            if showBrushPalette {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(Brand.brushSwatches, id: \.self) { c in
+                            Circle().fill(Color(UIColor(argb: c))).frame(width: 28, height: 28)
+                                .overlay(Circle().stroke(
+                                    m.brushColor == c ? Color.white : Color.white.opacity(0.35),
+                                    lineWidth: m.brushColor == c ? 3 : 1
+                                ))
+                                .onTapGesture { m.brushColor = c }
+                        }
                     }
                 }
+                Text(L("brush_size")).font(.caption.weight(.semibold))
+                HStack(spacing: 10) {
+                    Slider(value: $m.brushWidth, in: 0.006...0.045).tint(Brand.primary)
+                    Circle()
+                        .fill(Color(UIColor(argb: m.brushColor)))
+                        .frame(width: max(6, m.brushWidth * 500), height: max(6, m.brushWidth * 500))
+                        .frame(width: 28, height: 28)
+                }
             }
-            HStack {
-                Text(L("brush_size")).font(.caption)
-                Slider(value: $m.brushWidth, in: 0.004...0.05).tint(Brand.accent)
-                Circle().fill(Color(UIColor(argb: m.brushColor)))
-                    .frame(width: max(4, m.brushWidth * 400), height: max(4, m.brushWidth * 400))
-                    .frame(width: 24, height: 24)
-            }
+
             Hint(key: "photo_draw_hint")
         }
+    }
+
+    private func brushIcon(
+        system: String,
+        label: String,
+        selected: Bool,
+        danger: Bool = false,
+        enabled: Bool = true,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
+            VStack(spacing: 4) {
+                Image(systemName: system)
+                    .font(.system(size: 18, weight: .semibold))
+                    .frame(width: 40, height: 40)
+                    .background(
+                        selected ? Brand.primary.opacity(0.22) : Color.clear,
+                        in: Circle()
+                    )
+                    .foregroundStyle(
+                        !enabled ? Color.white.opacity(0.35)
+                            : danger ? Brand.record
+                            : selected ? Brand.primary
+                            : Color.white
+                    )
+                Text(label)
+                    .font(.system(size: 9, weight: .medium))
+                    .foregroundStyle(selected ? Brand.primary : Color.white.opacity(0.7))
+                    .lineLimit(1)
+                    .frame(width: 56)
+            }
+        }
+        .disabled(!enabled)
+        .buttonStyle(.plain)
+        .accessibilityLabel(label)
     }
 }
 
@@ -278,43 +362,88 @@ private struct StrokeLayer: View {
     }
 }
 
+/// Text / sticker overlay: one-finger drag to move, corner handle or pinch to enlarge.
 private struct PhotoTextItemView: View {
     @ObservedObject var m: PhotoEditorModel
     let item: TextItem
     let frame: CGSize
-    @State private var start: CGPoint?
-    @State private var scaleStart: Double?
+    @State private var dragOrigin: CGPoint?
+    @State private var handleBase: Double?
+    @State private var handleOrigin: CGPoint?
 
     var body: some View {
         let image = TextRenderer.image(for: item, frameHeight: frame.height * UIScreen.main.scale)
         let selected = m.selectedTextID == item.id
-        Image(uiImage: image)
-            .resizable()
-            .frame(width: image.size.width / UIScreen.main.scale, height: image.size.height / UIScreen.main.scale)
-            .overlay(RoundedRectangle(cornerRadius: 4).stroke(selected ? Brand.accent : .clear, style: StrokeStyle(lineWidth: 1.5, dash: [5, 3])))
-            .rotationEffect(.degrees(item.rotation))
-            .position(x: item.x * frame.width, y: item.y * frame.height)
-            .gesture(DragGesture()
+        let w = max(44, image.size.width / UIScreen.main.scale)
+        let h = max(44, image.size.height / UIScreen.main.scale)
+        ZStack {
+            Image(uiImage: image)
+                .resizable()
+                .frame(width: image.size.width / UIScreen.main.scale,
+                       height: image.size.height / UIScreen.main.scale)
+            if selected {
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(Brand.accent, style: StrokeStyle(lineWidth: 1.5, dash: [5, 3]))
+                    .frame(width: w + 8, height: h + 8)
+                Button {
+                    m.deleteText(item.id)
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title3)
+                        .foregroundStyle(.white, Brand.record)
+                }
+                .offset(x: w / 2 + 4, y: -h / 2 - 4)
+                // Bottom-trailing handle: drag with one finger to enlarge / shrink.
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 22, height: 22)
+                    .overlay(Circle().stroke(Brand.primary, lineWidth: 2))
+                    .overlay(Image(systemName: "arrow.up.left.and.arrow.down.right")
+                        .font(.system(size: 9, weight: .bold))
+                        .foregroundStyle(Brand.primary))
+                    .offset(x: w / 2 + 4, y: h / 2 + 4)
+                    .gesture(DragGesture(minimumDistance: 0)
+                        .onChanged { g in
+                            if handleBase == nil {
+                                handleBase = item.size
+                                handleOrigin = g.location
+                                m.selectedTextID = item.id
+                            }
+                            guard let base = handleBase else { return }
+                            let delta = (g.translation.width + g.translation.height) / max(120, min(frame.width, frame.height) * 0.35)
+                            m.updateText(item.id, staged: true) {
+                                $0.size = min(0.55, max(0.02, base * Double(1 + delta)))
+                            }
+                        }
+                        .onEnded { _ in handleBase = nil; handleOrigin = nil })
+            }
+        }
+        .frame(width: w + 24, height: h + 24)
+        .contentShape(Rectangle())
+        .rotationEffect(.degrees(item.rotation))
+        .position(x: item.x * frame.width, y: item.y * frame.height)
+        .highPriorityGesture(
+            DragGesture(minimumDistance: 3)
                 .onChanged { g in
-                    if start == nil { start = CGPoint(x: item.x, y: item.y); m.selectedTextID = item.id }
-                    guard let s = start else { return }
+                    if dragOrigin == nil {
+                        dragOrigin = CGPoint(x: item.x, y: item.y)
+                        m.selectedTextID = item.id
+                        m.panel = item.kind == .sticker ? .sticker : .text
+                    }
+                    guard let origin = dragOrigin else { return }
                     m.updateText(item.id, staged: true) {
-                        $0.x = min(1, max(0, s.x + g.translation.width / frame.width))
-                        $0.y = min(1, max(0, s.y + g.translation.height / frame.height))
+                        $0.x = min(0.95, max(0.05, origin.x + g.translation.width / frame.width))
+                        $0.y = min(0.95, max(0.05, origin.y + g.translation.height / frame.height))
                     }
                 }
-                .onEnded { _ in start = nil }
-                .simultaneously(with: MagnificationGesture()
-                    .onChanged { v in
-                        if scaleStart == nil { scaleStart = item.size }
-                        m.updateText(item.id, staged: true) { $0.size = min(0.4, max(0.015, (scaleStart ?? 0.06) * Double(v))) }
-                    }
-                    .onEnded { _ in scaleStart = nil }))
-            .onTapGesture {
-                m.selectedTextID = item.id
-                m.panel = item.kind == .sticker ? .sticker : .text
-            }
-            .allowsHitTesting(m.panel != .brush)
+                .onEnded { _ in dragOrigin = nil }
+        )
+        .onTapGesture {
+            SoundFx.tick()
+            m.selectedTextID = item.id
+            m.panel = item.kind == .sticker ? .sticker : .text
+        }
+        .allowsHitTesting(m.panel != .brush)
     }
 }
 

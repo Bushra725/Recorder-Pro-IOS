@@ -1,4 +1,4 @@
-/* ScreenRec Pro — id. Generated from Android values-in/strings.xml + iOS keys. */
+﻿/* ScreenRec Pro — id. Generated from Android values-in/strings.xml + iOS keys. */
 
 "access_terms_body" = "Galeri dan foto: kami menyimpan rekaman dan tangkapan layar ke galeri Anda agar Anda bisa menonton, membagikan, dan menghapusnya di aplikasi ini dan di Foto. Kami tidak memindai gambar Anda yang lain.\n\nVideo: saat memotong, menggabungkan, menambah subtitle, atau mengekspor, Anda memilih file lewat pemilih sistem. Kami hanya membuka klip yang Anda pilih.\n\nKamera: overlay Facecam opsional. Hanya dipakai saat Anda menyalakan Facecam, tidak pernah di latar belakang.\n\nMikrofon: suara opsional pada rekaman. Hanya diminta saat Anda memilih Mikrofon atau Keduanya.\n\nRekam layar: dialog perekaman sistem iOS. Anda boleh menolak dan aplikasi tidak akan merekam.";
 "access_terms_title" = "Mengapa kami meminta akses";
@@ -221,7 +221,7 @@
 "ios_draft_restored" = "Draf dipulihkan";
 "ios_duration_photo_only" = "Pilih foto di linimasa untuk mengatur durasinya.";
 "ios_export_saved_body" = "Disimpan ke pustaka Anda (dan ke Foto jika Simpan ke galeri aktif).";
-"ios_facecam_hint" = "Video Anda diputar sementara kamera depan merekam Anda. Seret gelembung untuk menempatkannya; gunakan headphone agar tidak bergema.";
+"ios_facecam_hint" = "Video Anda diputar sementara kamera merekam Anda. Ketuk tombol pada gelembung untuk ganti kamera; seret untuk menempatkannya; gunakan headphone agar tidak bergema.";
 "ios_first_video_body" = "Ketuk Rekam, pilih suara, lalu ketuk Mulai Siaran. Hitung mundur 3 detik memberi waktu untuk berpindah aplikasi.";
 "ios_hide_toasts_sub" = "Tanpa pesan “Perekaman dimulai” atau “Disimpan” di aplikasi";
 "ios_import_screenshots" = "Impor dari Foto";
@@ -633,3 +633,4 @@
 "watermark_working_body" = "Menambahkan watermark. Ini hanya perlu beberapa detik.";
 "watermark_working_title" = "Menyelesaikan rekaman Anda";
 "your_text" = "Teks Anda";
+"ios_facecam_switch" = "Ganti kamera";

@@ -1,4 +1,4 @@
-/* ScreenRec Pro — fr. Generated from Android values-fr/strings.xml + iOS keys. */
+﻿/* ScreenRec Pro — fr. Generated from Android values-fr/strings.xml + iOS keys. */
 
 "access_terms_body" = "Galerie et photos : nous enregistrons vos enregistrements et captures dans votre galerie pour que vous puissiez les regarder, les partager et les supprimer dans cette appli et dans Photos. Nous n'analysons pas vos autres images.\n\nVidéos : lorsque vous coupez, fusionnez, sous-titrez ou exportez, vous choisissez un fichier avec le sélecteur système. Nous n'ouvrons que le clip que vous choisissez.\n\nCaméra : incrustation Facecam facultative. Utilisée uniquement lorsque vous activez Facecam, jamais en arrière-plan.\n\nMicrophone : voix facultative sur l'enregistrement. Demandé uniquement lorsque vous choisissez Micro ou Les deux.\n\nEnregistrement de l'écran : boîte de dialogue de capture système d'iOS. Vous pouvez refuser, et l'appli n'enregistrera pas.";
 "access_terms_title" = "Pourquoi nous demandons l'accès";
@@ -221,7 +221,7 @@
 "ios_draft_restored" = "Brouillon restauré";
 "ios_duration_photo_only" = "Sélectionnez une photo sur la timeline pour régler sa durée.";
 "ios_export_saved_body" = "Enregistré dans votre bibliothèque (et dans Photos si l'option est activée).";
-"ios_facecam_hint" = "Votre vidéo est lue pendant que la caméra avant vous filme. Faites glisser la bulle ; utilisez des écouteurs pour éviter l'écho.";
+"ios_facecam_hint" = "Votre vidéo est lue pendant que la caméra vous filme. Touchez le bouton sur la bulle pour changer de caméra ; faites glisser pour placer ; utilisez des écouteurs pour éviter l'écho.";
 "ios_first_video_body" = "Touchez Enregistrer, choisissez le son, puis Commencer la diffusion. Le compte à rebours de 3 s vous laisse changer d'app.";
 "ios_hide_toasts_sub" = "Pas de messages « Enregistrement démarré » ou « Enregistré » dans l'app";
 "ios_import_screenshots" = "Importer depuis Photos";
@@ -633,3 +633,4 @@
 "watermark_working_body" = "Ajout du filigrane en cours. Cela prend quelques secondes.";
 "watermark_working_title" = "Finalisation de votre enregistrement";
 "your_text" = "Votre texte";
+"ios_facecam_switch" = "Changer de caméra";

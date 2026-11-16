@@ -150,6 +150,8 @@ final class PhotoEditorModel: ObservableObject, TextStyleTarget {
     @Published var brushFill = false
     @Published var busy = false
     @Published var notice: String?
+    /// Base size while a two-finger pinch is in progress on the canvas.
+    var pinchBaseSize: Double?
     private var geometryDirty = false
     private var staged: [TextItem]?
 

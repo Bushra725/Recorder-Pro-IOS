@@ -438,14 +438,17 @@ S = {
  "स्पीच रिकग्निशन बंद है। सेटिंग्स › प्राइवेसी और सिक्योरिटी › स्पीच रिकग्निशन में चालू करें।",
  "Pengenalan ucapan nonaktif. Aktifkan di Pengaturan › Privasi & Keamanan › Pengenalan Ucapan."),
 "ios_facecam_hint": (
- "Your video plays while the front camera films you. Drag the bubble to place it; use headphones to avoid echo.",
- "Tu vídeo se reproduce mientras la cámara frontal te graba. Arrastra la burbuja para colocarla; usa auriculares para evitar eco.",
- "Seu vídeo toca enquanto a câmera frontal filma você. Arraste a bolha para posicionar; use fones para evitar eco.",
- "Votre vidéo est lue pendant que la caméra avant vous filme. Faites glisser la bulle ; utilisez des écouteurs pour éviter l'écho.",
- "Dein Video läuft, während die Frontkamera dich filmt. Ziehe die Blase an ihren Platz; Kopfhörer verhindern Echo.",
- "يُشغَّل الفيديو بينما تصوّرك الكاميرا الأمامية. اسحب الفقاعة لوضعها؛ استخدم سماعات لتجنب الصدى.",
- "आपका वीडियो चलेगा और फ़्रंट कैमरा आपको रिकॉर्ड करेगा। बबल को खींचकर रखें; इको से बचने के लिए हेडफ़ोन लगाएँ।",
- "Video Anda diputar sementara kamera depan merekam Anda. Seret gelembung untuk menempatkannya; gunakan headphone agar tidak bergema."),
+ "Your video plays while the camera films you. Tap the flip button on the bubble to switch cameras; drag to place it; use headphones to avoid echo.",
+ "Tu vídeo se reproduce mientras la cámara te graba. Toca el botón de la burbuja para cambiar de cámara; arrástrala para colocarla; usa auriculares para evitar eco.",
+ "Seu vídeo toca enquanto a câmera filma você. Toque no botão da bolha para trocar a câmera; arraste para posicionar; use fones para evitar eco.",
+ "Votre vidéo est lue pendant que la caméra vous filme. Touchez le bouton sur la bulle pour changer de caméra ; faites glisser pour placer ; utilisez des écouteurs pour éviter l'écho.",
+ "Dein Video läuft, während die Kamera dich filmt. Tippe den Knopf auf der Blase zum Umschalten; ziehe sie an ihren Platz; Kopfhörer verhindern Echo.",
+ "يُشغَّل الفيديو بينما تصوّرك الكاميرا. المس زر الفقاعة لتبديل الكاميرا؛ اسحبها لوضعها؛ استخدم سماعات لتجنب الصدى.",
+ "आपका वीडियो चलेगा और कैमरा आपको रिकॉर्ड करेगा। कैमरा बदलने के लिए बबल पर बटन टैप करें; खींचकर रखें; इको से बचने के लिए हेडफ़ोन लगाएँ।",
+ "Video Anda diputar sementara kamera merekam Anda. Ketuk tombol pada gelembung untuk ganti kamera; seret untuk menempatkannya; gunakan headphone agar tidak bergema."),
+"ios_facecam_switch": (
+ "Switch camera", "Cambiar cámara", "Trocar câmera", "Changer de caméra",
+ "Kamera wechseln", "تبديل الكاميرا", "कैमरा बदलें", "Ganti kamera"),
 }
 
 # Permission prompts (InfoPlist.strings). Same language order.
