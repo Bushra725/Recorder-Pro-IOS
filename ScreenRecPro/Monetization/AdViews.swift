@@ -73,11 +73,18 @@ struct NativeAdCard: View {
         Group {
             if let ad, !store.hasPro {
                 NativeAdViewRep(ad: ad)
+                    .frame(maxWidth: .infinity)
                     .frame(height: 300)
                     .card()
             }
         }
         .onAppear(perform: load)
+        .onDisappear {
+            // Drop the creative so GADMediaView cannot linger on the window
+            // after leaving Settings (it was floating over Edit pickers).
+            ad = nil
+            loader = nil
+        }
         .onChange(of: ads.sdkReady) { _ in load() }
     }
 
@@ -150,7 +157,8 @@ private struct NativeAdViewRep: UIViewRepresentable {
         body.numberOfLines = 2
 
         let media = MediaView()
-        media.contentMode = .scaleAspectFit
+        media.contentMode = .scaleAspectFill
+        media.clipsToBounds = true
 
         let cta = UIButton(type: .system)
         cta.backgroundColor = Brand.uiPrimary
@@ -180,6 +188,7 @@ private struct NativeAdViewRep: UIViewRepresentable {
             media.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             media.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
             media.topAnchor.constraint(equalTo: body.bottomAnchor, constant: 10),
+            media.heightAnchor.constraint(equalToConstant: 140),
             media.bottomAnchor.constraint(equalTo: cta.topAnchor, constant: -10),
             cta.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             cta.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
@@ -203,5 +212,11 @@ private struct NativeAdViewRep: UIViewRepresentable {
         (view.callToActionView as? UIButton)?.setTitle(ad.callToAction, for: .normal)
         view.mediaView?.mediaContent = ad.mediaContent
         view.nativeAd = ad
+    }
+
+    static func dismantleUIView(_ view: NativeAdView, coordinator: ()) {
+        view.nativeAd = nil
+        view.mediaView?.mediaContent = nil
+        view.removeFromSuperview()
     }
 }

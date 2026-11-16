@@ -28,9 +28,14 @@ struct TrimToolView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 14) {
-                VideoPlayer(player: player)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black)
+                ZStack {
+                    Color.black
+                    VideoPlayer(player: player)
+                }
+                .frame(maxWidth: .infinity)
+                .frame(minHeight: 220)
+                .frame(maxHeight: .infinity)
+                .clipped()
 
                 if mode != .compress || urls.count == 1 {
                     if mode != .compress { rangeEditor }
@@ -42,6 +47,7 @@ struct TrimToolView: View {
                     .padding(.horizontal, 20)
                     .disabled(durationMs == 0)
             }
+            .background(Brand.background)
             .padding(.bottom, 12)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)

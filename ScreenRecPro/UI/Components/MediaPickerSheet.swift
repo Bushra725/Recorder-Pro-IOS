@@ -60,6 +60,14 @@ struct MediaPickerSheet: View {
                     if let hint = purpose.hintKey {
                         Text(L(hint)).font(.footnote).foregroundStyle(Brand.textMuted)
                     }
+                    if purpose.multi && !selected.isEmpty {
+                        Text("\(selected.count)").font(.headline.monospacedDigit()).padding(.top, 4)
+                        LazyVGrid(columns: columns, spacing: 4) {
+                            ForEach(selected, id: \.path) { url in
+                                selectedCell(url)
+                            }
+                        }
+                    }
                     if !purpose.photosOnly && !items.isEmpty {
                         Text(L("app_name")).font(.headline).padding(.top, 4)
                         LazyVGrid(columns: columns, spacing: 4) {
@@ -69,6 +77,7 @@ struct MediaPickerSheet: View {
                 }
                 .padding(16)
             }
+            .background(Brand.background.ignoresSafeArea())
             .overlay { if loading { WorkingOverlay(message: L("please_wait")) } }
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
@@ -85,6 +94,7 @@ struct MediaPickerSheet: View {
                 Task { await importFromPhotos(items) }
             }
         }
+        .background(Brand.background)
         .onAppear { AdsManager.shared.suppressAppOpenBriefly(120) }
     }
 
@@ -114,8 +124,32 @@ struct MediaPickerSheet: View {
 
     private func cell(_ item: MediaItem) -> some View {
         let index = selected.firstIndex(of: item.url)
-        return ThumbnailView(url: item.url, maxSide: 300)
-            .aspectRatio(1, contentMode: .fill)
+        return thumb(url: item.url, durationMs: item.isVideo ? item.durationMs : nil, index: index)
+            .onTapGesture {
+                SoundFx.tick()
+                if purpose.multi {
+                    if let index { selected.remove(at: index) } else { selected.append(item.url) }
+                } else {
+                    finish([item.url])
+                }
+            }
+    }
+
+    private func selectedCell(_ url: URL) -> some View {
+        let index = selected.firstIndex(of: url)
+        return thumb(url: url, durationMs: nil, index: index)
+            .onTapGesture {
+                SoundFx.tick()
+                if let index { selected.remove(at: index) }
+            }
+    }
+
+    /// Square grid tile. `.fit` (not `.fill`) on the container keeps portrait
+    /// frames from collapsing into a thin floating strip.
+    private func thumb(url: URL, durationMs: Int64?, index: Int?) -> some View {
+        ThumbnailView(url: url, maxSide: 300)
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .aspectRatio(1, contentMode: .fit)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .overlay(alignment: .topTrailing) {
                 if purpose.multi {
@@ -128,17 +162,9 @@ struct MediaPickerSheet: View {
                 }
             }
             .overlay(alignment: .bottomLeading) {
-                if item.isVideo {
-                    Text(Format.duration(item.durationMs)).font(.caption2.bold()).foregroundStyle(.white)
+                if let durationMs {
+                    Text(Format.duration(durationMs)).font(.caption2.bold()).foregroundStyle(.white)
                         .padding(3).background(.black.opacity(0.5), in: RoundedRectangle(cornerRadius: 4)).padding(4)
-                }
-            }
-            .onTapGesture {
-                SoundFx.tick()
-                if purpose.multi {
-                    if let index { selected.remove(at: index) } else { selected.append(item.url) }
-                } else {
-                    finish([item.url])
                 }
             }
     }

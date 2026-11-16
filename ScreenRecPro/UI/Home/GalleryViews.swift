@@ -153,7 +153,8 @@ struct PhotoTabView: View {
                     LazyVGrid(columns: columns, spacing: 6) {
                         ForEach(library.photos) { item in
                             ThumbnailView(url: item.url, maxSide: 360)
-                                .aspectRatio(0.75, contentMode: .fill)
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .aspectRatio(0.75, contentMode: .fit)
                                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                                 .overlay(alignment: .topLeading) {
                                     if item.kind == .gif {

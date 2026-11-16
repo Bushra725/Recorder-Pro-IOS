@@ -65,7 +65,9 @@ final class Thumbnails {
     }
 }
 
-/// Async thumbnail view.
+/// Async thumbnail view. Always fills the frame the parent proposes — portrait
+/// videos used to report their native aspect and collapse to a thin strip in
+/// LazyVGrid cells (looking like a floating ad card).
 struct ThumbnailView: View {
     let url: URL
     var ms: Int64 = 0
@@ -78,9 +80,13 @@ struct ThumbnailView: View {
         ZStack {
             Brand.surfaceHigh
             if let image {
-                Image(uiImage: image).resizable().aspectRatio(contentMode: contentMode)
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: contentMode)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
         }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .clipped()
         .task(id: "\(url.path)|\(ms)") {
             image = Thumbnails.shared.cached(url, at: ms, maxSide: maxSide)
